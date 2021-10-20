@@ -8,6 +8,6 @@ client.connect(broker_address)
 topic = "led"
 
 client.publish(topic, "0")
-time.sleep(4)
+time.sleep(10)
 client.publish(topic, "1")
 client.loop_forever()
