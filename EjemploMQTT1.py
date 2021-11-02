@@ -4,7 +4,7 @@ import datetime
 import json
 import pymongo
 
-broker_address = "192.168.195.139"
+broker_address = "192.168.181.139"
 broker_port = 1883
 topic = "medida"
 lista = []
@@ -13,6 +13,9 @@ uri = 'mongodb://admin:qz3qGzXvu6mZjPkiJ6@asia.ujaen.es:8047/?authSource=admin&a
 myclient = pymongo.MongoClient(uri)
 mydb = myclient["Ejemplo"]
 mycol = mydb["samplesCO2"]
+
+'''for x in mycol.find().sort("timestamp", -1):
+    print(x)'''
 
 def on_message(client, userdata, message):
     print("Mensaje recibido=", str(message.payload.decode("utf-8")))
@@ -35,8 +38,10 @@ def on_message(client, userdata, message):
     mycol.insert_many(list)
 
 
+
 client = mqtt.Client('Cliente1')
 client.on_message = on_message
 client.connect(broker_address, broker_port, 60)
 client.subscribe(topic)  # Subscripción al topic
 client.loop_forever()
+''' para poder ordenar dentro de MongoDB db.getCollection('samplesCO2').find({}).sort({timestamp : 1})'''
