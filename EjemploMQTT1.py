@@ -4,7 +4,7 @@ import datetime
 import json
 import pymongo
 
-broker_address = "192.168.181.139"
+broker_address = "192.168.75.139"
 broker_port = 1883
 topic = "medida"
 lista = []
