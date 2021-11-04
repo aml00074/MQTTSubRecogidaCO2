@@ -14,7 +14,7 @@ lista = []
 uri = 'mongodb://admin:qz3qGzXvu6mZjPkiJ6@asia.ujaen.es:8047/?authSource=admin&authMechanism=SCRAM-SHA-256'
 myclient = pymongo.MongoClient(uri)
 mydb = myclient["Ejemplo"]
-mycol = mydb["samplesCO2"]
+mycol = mydb["samplesMQ135"]
 
 '''for x in mycol.find().sort("timestamp", -1):
     print(x)'''
@@ -37,11 +37,11 @@ def on_message(client, userdata, message):
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidaCO2': float(separado[0]),
-        'medidaCO': float(separado[1]),
-        'medidaNH4': float(separado[2]),
-        'medidaAlcohol': float(separado[3]),
-        'medidaAcetona': float(separado[4]),
+        'medidaCO2': separado[0],
+        'medidaCO': separado[1],
+        'medidaNH4': separado[2],
+        'medidaAlcohol': separado[3],
+        'medidaAcetona': separado[4],
         'timestamp': timestamp_str
     }]
     mycol.insert_many(list)
