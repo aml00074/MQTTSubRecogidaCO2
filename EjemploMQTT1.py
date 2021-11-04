@@ -37,7 +37,11 @@ def on_message(client, userdata, message):
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidaA0': float(str(message.payload.decode("utf-8"))),
+        'medidaCO2': float(separado[0]),
+        'medidaCO': float(separado[1]),
+        'medidaNH4': float(separado[2]),
+        'medidaAlcohol': float(separado[3]),
+        'medidaAcetona': float(separado[4]),
         'timestamp': timestamp_str
     }]
     mycol.insert_many(list)
