@@ -26,7 +26,7 @@ def on_message(client, userdata, message):
     timestamp = datetime.datetime.now(pytz.timezone('Europe/Madrid'))
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
     print("Timestamp=",timestamp_str)
-    separados=str(message.payload.decode("utf-8")).split(' ')
+    separados=str(message.payload.decode("utf-8")).split(':')
     print(separados)
 
     '''dict.append({
