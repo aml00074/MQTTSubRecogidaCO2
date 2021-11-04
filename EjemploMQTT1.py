@@ -37,7 +37,7 @@ def on_message(client, userdata, message):
     }]
     mycol.insert_many(list)
 
-while(true):
+while(True):
     try:
         client = mqtt.Client('Cliente1')
         client.on_message = on_message
