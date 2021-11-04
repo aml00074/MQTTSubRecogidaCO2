@@ -1,3 +1,5 @@
+from typing import List
+
 import paho.mqtt.client as mqtt
 import pytz
 import datetime
@@ -18,7 +20,8 @@ mycol = mydb["samplesCO2"]
     print(x)'''
 
 def on_message(client, userdata, message):
-    print("Mensaje recibido=", str(message.payload.decode("utf-8")))
+    mensaje=str(message.payload.decode("utf-8"))
+    print("Mensaje recibido=",mensaje)
     print("Topic=", message.topic)
     print("Nivel de calidad [0|1|2]=", message.qos)
     print("Flag de retención =", message.retain)
@@ -26,8 +29,8 @@ def on_message(client, userdata, message):
     timestamp = datetime.datetime.now(pytz.timezone('Europe/Madrid'))
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
     print("Timestamp=",timestamp_str)
-    separados=str(message.payload.decode("utf-8")).split(':')
-    print(separados)
+    separado=mensaje.split(':')
+    print(separado)
 
     '''dict.append({
         'medidaA0': float(str(message.payload.decode("utf-8"))),
