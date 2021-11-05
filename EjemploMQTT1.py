@@ -3,9 +3,8 @@ from typing import List
 import paho.mqtt.client as mqtt
 import pytz
 import datetime
-import json
 import pymongo
-import sys
+
 
 broker_address = "192.168.1.150"
 broker_port = 1883
