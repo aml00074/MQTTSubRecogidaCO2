@@ -38,7 +38,7 @@ def on_message(client, userdata, message):
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidaCO2': separado[0],
+        'medidaCO2': separado[1],
         'timestamp': timestamp_str
     }]
     mycol.insert_many(list)
