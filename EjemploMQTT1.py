@@ -29,8 +29,8 @@ def on_message(client, userdata, message):
     timestamp = datetime.datetime.now(pytz.timezone('Europe/Madrid'))
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
     print("Timestamp=",timestamp_str)
-    separado=mensaje.split(':',4)
-    print(separado[0:2])
+    separado[m1,m2,m3,m4,m5]=mensaje.split(':',4)
+    print(m1)
 
     '''dict.append({
         'medidaA0': float(str(message.payload.decode("utf-8"))),
