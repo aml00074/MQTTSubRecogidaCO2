@@ -30,14 +30,14 @@ def on_message(client, userdata, message):
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
     print("Timestamp=",timestamp_str)
     separado=mensaje.split(':',4)
-    print(separado(1))
+    print(separado[1])
 
     '''dict.append({
         'medidaA0': float(str(message.payload.decode("utf-8"))),
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidaCO2': float(str(message.payload.decode("utf-8"))),
+        'medidaCO2': separado,
         'timestamp': timestamp_str
     }]
     mycol.insert_many(list)
