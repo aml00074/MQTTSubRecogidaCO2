@@ -52,5 +52,4 @@ while(True):
         client.loop_forever()
         ''' para poder ordenar dentro de MongoDB db.getCollection('samplesCO2').find({}).sort({timestamp : 1})'''
     except Exception as e:
-        e = sys.exc_info()[1]
-        print(e.args[0])
+        print('e')
