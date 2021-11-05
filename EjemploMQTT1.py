@@ -37,7 +37,7 @@ def on_message(client, userdata, message):
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidas':1,
+        'medidas':separado[1],
         'medidaCO2':2,
         'timestamp': timestamp_str
     }]
