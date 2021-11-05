@@ -5,6 +5,7 @@ import pytz
 import datetime
 import json
 import pymongo
+import sys
 
 broker_address = "localhost"
 broker_port = 1883
@@ -38,11 +39,6 @@ def on_message(client, userdata, message):
     })'''
     list= [{
         'medidaCO2':float(str(message.payload.decode("utf-8"))),
-        '''
-        'medidaCO': separado[1],
-        'medidaNH4': separado[2],
-        'medidaAlcohol': separado[3],
-        'medidaAcetona': separado[4],'''
         'timestamp': timestamp_str
     }]
     mycol.insert_many(list)
@@ -56,4 +52,5 @@ while(True):
         client.loop_forever()
         ''' para poder ordenar dentro de MongoDB db.getCollection('samplesCO2').find({}).sort({timestamp : 1})'''
     except Exception as e:
-        print(e)
+        e = sys.exc_info()[1]
+        print(e.args[0])
