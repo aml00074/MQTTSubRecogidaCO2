@@ -29,7 +29,7 @@ def on_message(client, userdata, message):
     timestamp = datetime.datetime.now(pytz.timezone('Europe/Madrid'))
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
     print("Timestamp=",timestamp_str)
-    separado=mensaje.split(':')
+    separado=mensaje.split(':',4)
     print(separado[0:2])
 
     '''dict.append({
@@ -37,7 +37,7 @@ def on_message(client, userdata, message):
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidaCO2': float(separado[1]),
+        'medidaCO2': float(str(message.payload.decode("utf-8"))),
         'timestamp': timestamp_str
     }]
     mycol.insert_many(list)
