@@ -30,7 +30,7 @@ def on_message(client, userdata, message):
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
     print("Timestamp=",timestamp_str)
     separado=mensaje.split(':')
-    print(separado)
+    print(separado[0])
 
     '''dict.append({
         'medidaA0': float(str(message.payload.decode("utf-8"))),
