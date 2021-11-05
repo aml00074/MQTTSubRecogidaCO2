@@ -37,12 +37,11 @@ def on_message(client, userdata, message):
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidas': separado.pop(),
-        'medidaCO2':separado.pop(),
+        'medidas':1,
+        'medidaCO2':2,
         'timestamp': timestamp_str
     }]
-    
-    print(separado)
+
     mycol.insert_many(list)
 
 while(True):
