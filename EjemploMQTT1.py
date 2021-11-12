@@ -4,6 +4,7 @@ import paho.mqtt.client as mqtt
 import pytz
 import datetime
 import pymongo
+import json
 
 
 broker_address = "192.168.1.150"
@@ -21,8 +22,8 @@ print('hi')
 
 def on_message(client, userdata, message):
     print('hi3')
-    mensaje=str(message.payload.decode("utf-8"))
-    print("Mensaje recibido=",str(message.payload.decode("utf-8")))
+    mensaje=message.payload
+    print("Mensaje recibido=",mensaje)
     print("Topic=", message.topic)
     print("Nivel de calidad [0|1|2]=", message.qos)
     print("Flag de retención =", message.retain)
