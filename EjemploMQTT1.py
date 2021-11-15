@@ -56,7 +56,7 @@ while(True):
     try:
         client = mqtt.Client('Cliente1')
         client.on_message = on_message
-        #client.username_pw_set(ACCESS_TOKEN)
+        client.username_pw_set(ACCESS_TOKEN)
         client.connect(broker_address, broker_port, 60)
         print('hi1.5')
         client.subscribe("v1/devices/me/telemetry" % ACCESS_TOKEN,1)  # Subscripción al topic
