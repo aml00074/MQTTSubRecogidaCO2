@@ -32,14 +32,14 @@ def on_message(client, userdata, message):
     print("Timestamp=",timestamp_str)
     separado=json.load(mensaje)
     #separado=mensaje.split(':')
-    #print(separado)
+    print(separado)
 
     '''dict.append({
         'medidaA0': float(str(message.payload.decode("utf-8"))),
         'timestamp': timestamp_str
     })'''
     list = [{
-        'medidaCO2': separado['CO2'],
+        'medidaCO2': 1,
         'timestamp': timestamp_str
     }]
     '''list= [{
