@@ -6,7 +6,7 @@ import datetime
 import pymongo
 import json
 
-
+ACCESS_TOKEN="holacocacoli123"
 broker_address = "192.168.1.150"
 broker_port = 1883
 topic = "v1/devices/me/telemetry"
@@ -56,6 +56,7 @@ while(True):
     try:
         client = mqtt.Client('Cliente1')
         client.on_message = on_message
+        client.username_pw_set(ACCESS_TOKEN)
         client.connect(broker_address, broker_port, 60)
         print('hi1.5')
         client.subscribe(topic)  # Subscripción al topic
