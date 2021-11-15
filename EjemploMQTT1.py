@@ -9,7 +9,7 @@ import json
 
 broker_address = "192.168.1.150"
 broker_port = 1883
-topic = "v1/devices/telemetry"
+topic = "v1/devices/me/telemetry"
 lista = []
 # MongoDB
 uri = 'mongodb://admin:qz3qGzXvu6mZjPkiJ6@asia.ujaen.es:8047/?authSource=admin&authMechanism=SCRAM-SHA-256'
