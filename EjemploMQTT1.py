@@ -59,7 +59,7 @@ while(True):
         client.username_pw_set(ACCESS_TOKEN)
         client.connect(broker_address, broker_port, 60)
         print('hi1.5')
-        client.subscribe(topic)  # Subscripción al topic
+        client.subscribe(ACCESS_TOKEN)  # Subscripción al topic
         print('hi2')
         client.loop_forever()
         print('hi4')
