@@ -16,7 +16,6 @@ uri = 'mongodb://admin:qz3qGzXvu6mZjPkiJ6@asia.ujaen.es:8047/?authSource=admin&a
 myclient = pymongo.MongoClient(uri)
 mydb = myclient["Ejemplo2"]
 mycol = mydb["samplesMQ135"]
-print('hi')
 '''for x in mycol.find().sort("timestamp", -1):
     print(x)'''
 
@@ -32,7 +31,6 @@ def on_message(client, userdata, message):
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
     print("Timestamp=",timestamp_str)
     separado=mensaje.split(';')
-    print(separado)
 
     '''dict.append({
         'medidaA0': float(str(message.payload.decode("utf-8"))),
@@ -53,11 +51,8 @@ while(True):
         client = mqtt.Client('Cliente1')
         client.on_message = on_message
         client.connect(broker_address, broker_port, 60)
-        print('hi1.5')
         client.subscribe(topic)  # Subscripción al topic
-        print('hi2')
         client.loop_forever()
-        print('hi4')
         ''' para poder ordenar dentro de MongoDB db.getCollection('samplesCO2').find({}).sort({timestamp : 1})'''
     except Exception as e:
         print('e')
