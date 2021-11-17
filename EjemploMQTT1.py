@@ -18,8 +18,8 @@ lista = []
 # MongoDB
 uri = 'mongodb://admin:qz3qGzXvu6mZjPkiJ6@asia.ujaen.es:8047/?authSource=admin&authMechanism=SCRAM-SHA-256'
 myclient = pymongo.MongoClient(uri)
-mydb = myclient["Ejemplo2"]
-mycol = mydb["samplesMQ135"]
+mydb = myclient["Samples"]
+mycol = mydb[str(datetime.date.today())]
 '''for x in mycol.find().sort("timestamp", -1):
     print(x)'''
 
