@@ -39,6 +39,7 @@ def on_message(client, userdata, message):
     publish.single(topic_pub2, separado[2], hostname="192.168.1.150")
     publish.single(topic_pub3, separado[3], hostname="192.168.1.150")
     publish.single(topic_pub4, separado[4], hostname="192.168.1.150")
+    print("Mensajes de las medidas recogidas publicados")
     '''dict.append({
         'medidaA0': float(str(message.payload.decode("utf-8"))),
         'timestamp': timestamp_str
