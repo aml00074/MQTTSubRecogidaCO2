@@ -28,7 +28,7 @@ def on_message(client, userdata, message):
     print("Mensaje recibido=",str(message.payload.decode("utf-8")))
     print("Topic=", message.topic)
     print("Nivel de calidad [0|1|2]=", message.qos)
-    print("Flag de retención =", message.retain)
+    print("Flag de retencion =", message.retain)
 
     timestamp = datetime.datetime.now(pytz.timezone('Europe/Madrid'))
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
