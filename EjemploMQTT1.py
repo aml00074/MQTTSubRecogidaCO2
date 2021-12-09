@@ -59,7 +59,7 @@ while(True):
         client = mqtt.Client('Cliente1')
         client.on_message = on_message
         client.connect(broker_address, broker_port, 60)
-        client.subscribe(topic_sub)  # Subscripción al topic_sub
+        client.subscribe(topic_sub)  # Subscripcion al topic_sub
         client.loop_forever()
         ''' para poder ordenar dentro de MongoDB db.getCollection('samplesCO2').find({}).sort({timestamp : 1})'''
     except Exception as e:
