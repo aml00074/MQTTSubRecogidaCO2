@@ -34,23 +34,24 @@ def on_message(client, userdata, message):
     timestamp_str = timestamp.strftime("%d/%m/%Y, %H:%M:%S")
     print("Timestamp=",timestamp_str)
     separado=mensaje.split(';')
-    publish.single(topic_pub0, separado[0], hostname="192.168.1.150")
-    publish.single(topic_pub1, separado[1], hostname="192.168.1.150")
-    publish.single(topic_pub2, separado[2], hostname="192.168.1.150")
-    publish.single(topic_pub3, separado[3], hostname="192.168.1.150")
-    publish.single(topic_pub4, separado[4], hostname="192.168.1.150")
+    publish.single(topic_pub0, separado[1], hostname="192.168.1.150")
+    publish.single(topic_pub1, separado[2], hostname="192.168.1.150")
+    publish.single(topic_pub2, separado[3], hostname="192.168.1.150")
+    publish.single(topic_pub3, separado[4], hostname="192.168.1.150")
+    publish.single(topic_pub4, separado[5], hostname="192.168.1.150")
     print("Mensajes de las medidas recogidas publicados")
     '''dict.append({
         'medidaA0': float(str(message.payload.decode("utf-8"))),
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidaCO2':separado[0],
-        'medidaCO':separado[1],
-        'medidaNH4':separado[2],
-        'medidaAlcohol':separado[3],
-        'medidaAcetona':separado[4],
-        'timestamp': timestamp_str
+        'medidaCO2':separado[1],
+        'medidaCO':separado[2],
+        'medidaNH4':separado[3],
+        'medidaAlcohol':separado[4],
+        'medidaAcetona':separado[5],
+        'timestamp': timestamp_str,
+        'etiquetado':separado[0]
     }]
     mycol.insert_many(list)
 
