@@ -45,7 +45,8 @@ def on_message(client, userdata, message):
     })'''
     list= [{
         'TipoSensor':separado[0],
-        'medidaBruto':separado[1]
+        'medidaBruto':separado[1],
+        'timestamp': timestamp_str
     }]
     mycol.insert_many(list)
 
