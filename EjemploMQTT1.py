@@ -4,24 +4,23 @@ import pytz
 import datetime
 import pymongo
 
-
-
 broker_address = "192.168.1.150"
 broker_port = 1883
-topic_sub = "medida"
-topic_pub0 = "recogida/CO2"
-topic_pub1 = "recogida/CO"
-topic_pub2 = "recogida/NH4"
-topic_pub3 = "recogida/Alcohol"
+topic_sub = "medida/#"
+topic_pub0 = "recogida/CO2" '''MG811'''
+'''topic_pub1 = "recogida/CO" 
+topic_pub2 = "recogida/NH4" 
+topic_pub3 = "recogida/Alcohol" 
 topic_pub4 = "recogida/Acetona"
+'''
 topic_pub5 = "recogida/etiquetado"
 
 lista = []
 # MongoDB
 uri = 'mongodb://admin:qz3qGzXvu6mZjPkiJ6@asia.ujaen.es:8047/?authSource=admin&authMechanism=SCRAM-SHA-256'
 myclient = pymongo.MongoClient(uri)
-mydb = myclient["Samples"]
-mycol = mydb["MedidasGases"]
+mydb = myclient["SamplesJavi"]
+mycol = mydb["MedidasTesis"]
 '''for x in mycol.find().sort("timestamp", -1):
     print(x)'''
 
@@ -38,10 +37,6 @@ def on_message(client, userdata, message):
     separado=mensaje.split(';')
     print(separado)
     publish.single(topic_pub0, separado[1], hostname="192.168.1.150")
-    publish.single(topic_pub1, separado[2], hostname="192.168.1.150")
-    publish.single(topic_pub2, separado[3], hostname="192.168.1.150")
-    publish.single(topic_pub3, separado[4], hostname="192.168.1.150")
-    publish.single(topic_pub4, separado[5], hostname="192.168.1.150")
     publish.single(topic_pub5, separado[0], hostname="192.168.1.150")
     print("Mensajes de las medidas recogidas publicados")
     '''dict.append({
@@ -49,13 +44,8 @@ def on_message(client, userdata, message):
         'timestamp': timestamp_str
     })'''
     list= [{
-        'medidaCO2':separado[1],
-        'medidaCO':separado[2],
-        'medidaNH4':separado[3],
-        'medidaAlcohol':separado[4],
-        'medidaAcetona':separado[5],
-        'timestamp': timestamp_str,
-        'etiquetado':separado[0]
+        'TipoSensor':separado[0],
+        'medidaBruto':separado[1]
     }]
     mycol.insert_many(list)
 
