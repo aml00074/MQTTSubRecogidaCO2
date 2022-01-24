@@ -6,7 +6,7 @@ import pymongo
 
 broker_address = "192.168.1.150"
 broker_port = 1883
-topic_sub = "medida/#"
+topic_sub = "medida/#" '''hola'''
 topic_pub0 = "recogida/CO2" '''MG811'''
 '''topic_pub1 = "recogida/CO" 
 topic_pub2 = "recogida/NH4" 
